@@ -1,0 +1,18 @@
+// Last updated: 8/11/2026, 5:48:52 PM
+
+class Solution {
+    public int timeRequiredToBuy(int[] tickets, int k) {
+        int target = tickets[k];
+        int time = 0;
+
+        for (int i = 0; i < tickets.length; i++) {
+            if (i <= k) {
+                time += Math.min(tickets[i], target);
+            } else {
+                time += Math.min(tickets[i], target - 1);
+            }
+        }
+
+        return time;
+    }
+}
